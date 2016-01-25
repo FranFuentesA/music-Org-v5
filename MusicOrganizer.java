@@ -170,4 +170,30 @@ public class MusicOrganizer
             addTrack(track);
         }
     }
+    
+    /**
+     * 
+     */
+    public void findInTitle(String titulo)
+    {
+        String tituloActual;
+        
+        for (Track track : tracks) {
+        
+             tituloActual = track.getTitle();
+            
+            if (tituloActual.contains(titulo)) {
+            
+                System.out.println(track.getDetails());
+                System.out.println("Cancion encontrada");
+            
+            } else {
+            
+                System.out.println("No se han encontrado coincidencias");
+                
+            }
+        
+        }
+    }
+
 }
