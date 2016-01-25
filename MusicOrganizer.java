@@ -17,6 +17,8 @@ public class MusicOrganizer
     private TrackReader reader;
     
     private Track canciones;
+    
+    private boolean enReproduccion;
 
     /**
      * Create a MusicOrganizer
@@ -26,6 +28,7 @@ public class MusicOrganizer
         tracks = new ArrayList<Track>();
         player = new MusicPlayer();
         reader = new TrackReader();
+        enReproduccion = false;
         readLibrary("audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
@@ -60,6 +63,7 @@ public class MusicOrganizer
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
             track.incrementarContadorDeReproducciones();
+            enReproduccion = true;
         }
     }
     
@@ -128,6 +132,7 @@ public class MusicOrganizer
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
             canciones.incrementarContadorDeReproducciones();
+            enReproduccion = true;
         }
     }
     
@@ -137,6 +142,8 @@ public class MusicOrganizer
     public void stopPlaying()
     {
         player.stop();
+        //se para de reproducir 
+        enReproduccion = false;
     }
 
     /**
@@ -213,6 +220,22 @@ public class MusicOrganizer
     
     }
     
+    }
+    
+    /**
+     * Metodo que infroma si se esta reproduciendo una cancion
+     */
+    public void isPlaying()
+    {
+        if (enReproduccion == false) {
+            
+            System.out.println("No se está reproduciendo ninguna cancion");       
+        
+        } else {
+            
+            System.out.println("Se está reproduciendo una cancion");  
+        
+        }
     }
 
 }
