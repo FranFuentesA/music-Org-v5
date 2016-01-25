@@ -200,5 +200,19 @@ public class MusicOrganizer
         }
     }
     
+    
+    /**
+     * Metodo que permite introducir en una cancion elegida el genero musical.
+     */
+    public void introducirGeneroMusical(int index,String generoMusical){
+    
+    
+    if (index >= 0 && index < tracks.size()) {
+    
+        tracks.get(index).indicarGenero(generoMusical);
+    
+    }
+    
+    }
 
 }

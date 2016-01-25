@@ -15,7 +15,11 @@ public class Track
     private String filename;
     // lleva la cuenta de las veces que se ha reproducido una canción.
     private int playCount;
+    //Genero musical de la cancion
+    private String genero;
 
+    private String generoDeLaCancion;
+    
     /**
      * Constructor for objects of class Track.
      * @param artist The track's artist.
@@ -72,7 +76,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + "  (file: " + filename + ")" + "Veces Reproducida: " + playCount;
+        return artist + ": " + title + "  (file: " + filename + ")" + "Veces Reproducida: " + playCount + "genero de la cancion: " + generoDeLaCancion ;
     }
 
     /**
@@ -102,5 +106,18 @@ public class Track
     public void incrementarContadorDeReproducciones() {
 
         playCount++;
+    }
+      
+    public String getGenero() {
+
+        return generoDeLaCancion;
+        
+    }
+    
+     public void indicarGenero(String generoDeLaCancion) {
+    
+       this.generoDeLaCancion = generoDeLaCancion;
+    
+    
     }
 }
