@@ -207,18 +207,12 @@ public class MusicOrganizer
             tituloActual = track.getTitle();
 
             if (tituloActual.contains(titulo)) {
-
-                System.out.println(track.getDetails());
-                System.out.println("Cancion encontrada");
-
-            } else {
-
-                System.out.println("No se han encontrado coincidencias");
-
-            }
+               System.out.println(track.getDetails());                 
 
         }
     }
+}
+    
 
     /**
      * Metodo que permite introducir en una cancion elegida el genero musical.
