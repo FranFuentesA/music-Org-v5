@@ -15,6 +15,8 @@ public class MusicOrganizer
     private MusicPlayer player;
     // A reader that can read music files and load them as tracks.
     private TrackReader reader;
+    
+    private Track canciones;
 
     /**
      * Create a MusicOrganizer
@@ -125,6 +127,7 @@ public class MusicOrganizer
     {
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
+            canciones.incrementarContadorDeReproducciones();
         }
     }
     
