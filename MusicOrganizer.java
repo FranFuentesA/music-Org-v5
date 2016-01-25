@@ -57,6 +57,7 @@ public class MusicOrganizer
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+            track.incrementarContadorDeReproducciones();
         }
     }
     
@@ -172,7 +173,7 @@ public class MusicOrganizer
     }
     
     /**
-     * 
+     * Metodo que permite buscar canciones por titulo.
      */
     public void findInTitle(String titulo)
     {
@@ -195,5 +196,6 @@ public class MusicOrganizer
         
         }
     }
+    
 
 }
