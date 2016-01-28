@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * A class to hold details of audio tracks.
@@ -32,6 +33,7 @@ public class MusicOrganizer
         readLibrary("audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
+        
     }
 
     /**
@@ -60,9 +62,9 @@ public class MusicOrganizer
     {
         if (enReproduccion = true) {
 
-                System.out.println("Error ya existe una cancion en reproduccion actualmente");
+            System.out.println("Error ya existe una cancion en reproduccion actualmente");
         }
-        
+
         if(indexValid(index)) {
             Track track = tracks.get(index);
             player.startPlaying(track.getFilename());
@@ -135,17 +137,17 @@ public class MusicOrganizer
     public void playFirst()
     {
         //si ya existe una cancion en reproducion salta este mensaje
-        
+
         if (enReproduccion = true) {
 
-                System.out.println("Error ya existe una cancion en reproduccion actualmente");
+            System.out.println("Error ya existe una cancion en reproduccion actualmente");
         }
-                
+
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
             canciones.incrementarContadorDeReproducciones();
             enReproduccion = true;
-            
+
         }
     }
 
@@ -207,12 +209,11 @@ public class MusicOrganizer
             tituloActual = track.getTitle();
 
             if (tituloActual.contains(titulo)) {
-               System.out.println(track.getDetails());                 
+                System.out.println(track.getDetails());                 
 
+            }
         }
     }
-}
-    
 
     /**
      * Metodo que permite introducir en una cancion elegida el genero musical.
@@ -223,6 +224,7 @@ public class MusicOrganizer
             tracks.get(index).indicarGenero(generoMusical);
         }
     }
+
     /**
      * Metodo que infroma si se esta reproduciendo una cancion
      */
@@ -238,5 +240,16 @@ public class MusicOrganizer
 
         } 
     }
-
+    
+    /**
+     * Método que muestra todos las pistas del arraylist con un iterador
+     */
+    public void listAllTracksWithIterator(){
+        Iterator<Track> iterador = tracks.iterator();
+        while (iterador.hasNext()){
+            Track track = iterador.next();
+            System.out.println(iterador.next().getDetails());
+            
+        }
+    }
 }
