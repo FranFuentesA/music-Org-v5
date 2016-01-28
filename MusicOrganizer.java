@@ -266,4 +266,16 @@ public class MusicOrganizer
             }
         }
     }
+    
+    /**
+     * Método que permite elimina las pistas en funcion del titulo introducido por paramentro en el metodo.
+     */
+    public void removeByTitle(String titulo){
+        Iterator<Track> iterador = tracks.iterator();
+        while (iterador.hasNext()){
+            if (iterador.next().getTitle().contains(titulo)){
+                iterador.remove();
+            }
+        }
+    }
 }
