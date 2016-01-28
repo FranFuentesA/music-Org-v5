@@ -20,6 +20,8 @@ public class MusicOrganizer
     private Track canciones;
 
     private boolean enReproduccion;
+    
+    
 
     /**
      * Create a MusicOrganizer
@@ -245,11 +247,23 @@ public class MusicOrganizer
      * Método que muestra todos las pistas del arraylist con un iterador
      */
     public void listAllTracksWithIterator(){
-        Iterator<Track> iterador = tracks.iterator();
+       Iterator<Track> iterador = tracks.iterator();
         while (iterador.hasNext()){
             Track track = iterador.next();
             System.out.println(iterador.next().getDetails());
             
+        }
+    }
+    
+     /**
+     * Método que permite elimina las pistas en funcion del artista introducido por paramentro en el metodo.
+     */
+    public void removeByArtist(String artista){
+        Iterator<Track> iterador = tracks.iterator();
+        while (iterador.hasNext()){
+            if (iterador.next().getArtist().contains(artista)){
+                iterador.remove();
+            }
         }
     }
 }
